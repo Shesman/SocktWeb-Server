@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>WebSocket demo</title>
+
+        <title>Imagem de Fundo Preenchendo Toda a Tela</title>
+        
+        <link href="style.css" rel="stylesheet">
+        <script type="text/javascript" src="script,js"></script>
+
+    </head>
+    <body>
+
+    <div id="fundo-externo">
+        <div id="fundo">
+         <img src="img/beirario.jpeg" alt="" />
+        </div>
+    </div>
+            
+        <div id = "site">
+            <h3>Informações de data e hora Atualizadas</h3>
+            <h1>Imperatriz - MA</h1>
+            <div id = "data">
+                
+                <div id="time">time</div>
+                <script>
+                    const ws = new WebSocket("ws://127.0.0.1:5678/"),
+                    time = document.getElementById('time');
+                    ws.onmessage = function (event) {
+                        time.innerHTML = event.data;
+                    };          
+                    
+                </script>
+            </div>
+
+        </div>
+        
+
+    </body>
+</html>
